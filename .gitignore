@@ -1,0 +1,22 @@
+# Maven
+target/
+*.ser
+*.ec
+*.releaseBackup
+release.properties
+
+# IntelliJ Idea
+.idea/
+out/
+*.ipr
+*.iws
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# OS X
+.DS_Store

@@ -8,15 +8,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            - v1-dependencies-
+          key: guava-cleanser-{{ checksum "pom.xml" }}
       - run: mvn dependency:go-offline
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: mvn verify -Dgpg.skip=true
+          key: guava-cleanser-{{ checksum "pom.xml" }}
+      - run: mvn verify --batch-mode -Dstyle.color=always --errors -Dgpg.skip=true
       - store_test_results:
           path: target/surefire-reports
 
